@@ -28,6 +28,8 @@ window.onload = function () {
     var div_update_log_content = document.getElementById("updateLogContent");
     var div_settings = document.getElementById("settingsContent");
     var settings_outer_order = document.getElementById("settings_outer_order");
+    var settings_inner_order = document.getElementById("settings_inner_order");
+
     var div_local_storage_size = document.getElementById("local_storage_size");
 
     div_local_storage_size.innerHTML += calculateLocalStorageSize();
@@ -37,6 +39,10 @@ window.onload = function () {
         settings_outer_order.value = settings_order_value;
     }
 
+    const settings_inner_value = localStorage.getItem("settings_inner_order");
+    if (settings_inner_value) {
+        settings_inner_order.value = settings_inner_value;
+    }
     btn_update_log.onclick = function() {
         div_update_log_content.style.display = 'block';
         div_settings.style.display = 'none';
@@ -59,4 +65,7 @@ window.onload = function () {
         localStorage.setItem("settings_outer_order", e.target.value);
     }
 
+    settings_inner_order.onchange = function(e) {
+        localStorage.setItem("settings_inner_order", e.target.value);
+    }
 }

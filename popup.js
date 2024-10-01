@@ -36,18 +36,17 @@ window.onload = function () {
         item['timeStamp'] = JSON.parse(localStorage.getItem(localStorage.key(i))).timeStamp
         allClampsArray.push(item)
     }
-    console.log(allClampsArray)
+    
     if (localStorage["settings_outer_order"] == 'first_letter') {
         allClampsArray.sort((a, b) => a['name'].localeCompare(b['name']));
     } else if (localStorage["settings_outer_order"] == 'time_order') {
         allClampsArray.sort((a, b) => a['timeStamp'] - b['timeStamp']);
     }
 
-    console.log(allClampsArray)
+
     for (var i = 0; i < allClampsArray.length; i++) {
         var name = allClampsArray[i]['name']
         var htmlDelta =  allClampsArray[i]['htmlDelta']
-        console.log(name, allClampsArray[i])
         htmlDelta = '<button style="margin-left:10px; width:150px;" id="clamps_' + i + '" class="btn btn-outline-dark btn-sm clampsListBtns" name="' + name + '">' + htmlDelta + '</button>';
         clampsList.innerHTML += htmlDelta;
         if (i % 3 == 2){
@@ -61,7 +60,13 @@ window.onload = function () {
             clampsOnClick(selectedName);
             innerList.innerHTML = ""
             current = JSON.parse(localStorage.getItem("clamps_" + selectedName));
-            for (var i = current.size - 1; i >= 0; i--) {
+            if (localStorage["settings_inner_order"] == 'url_order') {
+                current.data.sort((a, b) => a.url.localeCompare(b.url));
+            } else if (localStorage["settings_inner_order"] == 'title_order') {
+                current.data.sort((a, b) => a.title.localeCompare(b.title));
+            }
+            console.log(current)
+            for (var i = current.data.length - 1; i >= 0; i--) {
                 innerList.innerHTML += '<li class="innerListItems">' + 
                     '<img src="' + current.data[i].favIconUrl + '" width="16px" height="16px"/> ' + 
                     '<a target="_blank" href="' + current.data[i].url + '">' + current.data[i].title + '</a>' + "</li>";
@@ -73,7 +78,7 @@ window.onload = function () {
             tips_info.innerHTML = "请输入你要操作的标签夹的名字";
             return;
         }
-        console.log(getLength(input.value))
+
         tips_info.innerHTML = getLength(input.value);
         if (getLength(input.value) > 14) {
             tips_info.innerHTML = "不能超过14个字符, 中文算2个字符, 英文算1个字符";
@@ -84,10 +89,10 @@ window.onload = function () {
             for (var i = 0; i < tabs.length; i++) {
                 forumTabs[i] = tabs[i];
             }
-            current.data = {};
+            current.data = [];
             for (var i = 0; i < forumTabs.length; i++) {
                 if (forumTabs[i] != null) {
-                    current.data[i] = forumTabs[i];
+                    current.data.push(forumTabs[i]);
                 }
             }
             current.name = input.value;
@@ -178,7 +183,7 @@ window.onload = function () {
             const reader = new FileReader();
             reader.onload = function(e) {
                 const content = JSON.parse(e.target.result);
-                console.log(content)
+
                 for (let key in content) {
                     if (localStorage.getItem("clamps_" + key)) {
                         failed += 1;
@@ -186,7 +191,6 @@ window.onload = function () {
                         localStorage.setItem("clamps_" + key, content[key]);
                     }
                     cnt += 1;
-                    console.log(cnt, failed)
                 }
                 tips_info.innerHTML = "导入完成, 导入了 " + cnt.toString() + " 个, 自动跳过 " + failed.toString() + " 个已存在的标签夹。5秒后将自动刷新。";
                 setTimeout(function() {location.reload(false);}, 5000);

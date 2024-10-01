@@ -1,0 +1,238 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        <meta charset="UTF-8">
+        <title>标签夹</title>
+        <style type="text/css">
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.btn-outline-dark {
+    color: #343a40;
+    border-color: #343a40;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+.btn-outline-dark {
+    color: #343a40;
+    border-color: #343a40;
+}
+button {
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+button {
+    margin: 1px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.btn-outline-dark:hover {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .76562rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+.innerListItems{
+    list-style-type:none;
+}
+
+input {
+    border: 1px solid #ccc;
+    padding: 5px 0px;
+    border-radius: 3px;
+    padding-left: 5px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+}
+
+
+body {
+    margin: 0;
+    color: #345;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
+    font-size: 9pt;
+    width:525px;
+}
+
+body * {
+    white-space: nowrap;
+}
+
+#about {
+    font-size: 10pt;
+    padding: 10px 20px;
+    width:450px;
+}
+
+.header{
+    width: 290px;
+    height: 90px;
+}
+
+.header .logo{
+    float:left;
+    margin-bottom: 20px;
+}
+
+.header .logo-content {
+    float:left;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+
+.header .title{
+    font-size:24px;
+    margin: 0px 5px;
+}
+
+.header .sub-title{
+    font-size:16px;
+    margin: 0px 5px;
+}
+
+#about a {
+    cursor: pointer;
+    text-decoration: blink;
+    color: #4285f4;
+    outline : none;
+}
+
+#about .footer {
+    height: 15px;
+    color: #789;
+    margin: 5px;
+    padding-top: 5px;
+    border-top: solid 1px #eef;
+    white-space: nowrap;
+}
+
+#about #tips{
+    color: red;
+    font-size: 16px;
+    display: block;
+    padding-bottom: 5px;
+}
+#settings:after {
+    display: inline-block;
+    content: " ";
+    width: 100%;
+    height: 100%;
+}
+.popup_copyright{
+    text-align: center;
+}
+#settings{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-top: -22px;
+}
+#clampsList{
+    word-wrap:break-word;
+    width: 500px;
+    white-space: normal;
+}
+#tips_info{
+    color:#FF6D6D
+}
+#fileInput {
+    display: none; /* 隐藏文件输入 */
+}
+        </style>
+
+    </head>
+    <body>
+        <div id="about">
+            <div class="header">
+                <div class="logo">
+                    <img src="icon.png" width="70">
+                </div>
+                <a href="options.html" target="_blank" style="font-size:12pt; position:absolute; right:10px;">[设置]</a>
+                <div class="logo-content">
+                    <p class="title">标签夹  Tab Clamp</p>
+                    <p class="sub-title">版本：<span id="versionNumber">2.0.0</span></p>
+                    <p class="sub-title">作者：Zorua</p>
+                </div>
+            </div>
+            <div class="body">
+                <div id="clampsList"></div><br>
+                <div id="tips_info"></div><br>
+                <div>欲操作的标签夹名字：<input type="text" name="fname" id="input" autocomplete="off"/></div><br>
+                针对指定标签夹的操作：
+                <button id="saveAll" class="btn btn-outline-dark btn-sm">保存</button>
+                <button id="openAll" class="btn btn-outline-dark btn-sm">打开</button>
+                <button id="delete"  class="btn btn-outline-dark btn-sm">删除</button>
+                <button id="share"  class="btn btn-outline-dark btn-sm">分享</button>
+                <br><br>
+                针对所有标签夹的操作：
+                <button id="import"  class="btn btn-outline-dark btn-sm">导入</button>
+                <button id="export"  class="btn btn-outline-dark btn-sm">导出</button>
+                <input type="file" id="fileInput" accept=".json">
+                <br><br>
+                <div id="innerList"> </div>
+            </div>
+            <div class="footer">
+                <div class="popup_copyright">
+                    <a target="_blank" href="https://zoruasama.github.io/2021/10/26/TabClamp/">帮助文档</a>
+                    © 2024 <a target="_blank" href="https://zoruasama.github.io/">Zorua</a>
+                </div>
+                <a id="settings" href="https://zoruasama.github.io/"></a>
+            </div>
+        </div>
+        <script src="popup.js"></script>
+    
+
+</body></html>

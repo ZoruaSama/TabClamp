@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title id="options-page-title">标签夹设置</title>
+    <script src="options.js"></script>
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f1f2f7;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            padding: 0px !important;
+            margin: 0px !important;
+            font-size: 14px;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+        #content {
+            background-color: #fff;
+            margin: 100px auto 0;
+            width: 600px;
+            border-radius: 5px;
+        }
+        #content>h1{
+            margin: 0;
+            padding: 20px 15px;
+            text-align: center;
+            background: #41cac0;
+            border-radius: 5px 5px 0 0;
+            -webkit-border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-family: 'Open Sans', sans-serif;
+        }
+        #content>h1>span{
+            font-weight: 700;
+        }
+        #content-wrap{
+            padding: 20px 10px;
+        }
+        .form-horizontal .control-label {
+            padding-top: 7px;
+            margin-bottom: 0;
+            text-align: right;
+        }
+        .col-sm-2 {
+            width: 16.66666667%;
+            float: left;
+        }
+        .col-sm-offset {
+            margin-left: 16.66666667%;
+        }
+        .col-sm-10 {
+            width: 83.33333333%;
+        }
+        .col-sm-10,.col-sm-2{
+            float: left;
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .form-group:before,.form-group:after,.form-horizontal:before,.form-horizontal:after{
+            display: table;
+            content: " ";
+        }
+        .form-group:after,.form-horizontal:after{
+            clear: both;
+        }
+        .form-horizontal .checkbox{
+            padding-top: 7px;
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+            display: block;
+        }
+        .tips{
+            display: block;
+            color: #737373;
+            margin: 5px 21px 10px;
+            font-size: 14pt;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        .button-3d{
+            position: relative;
+            background: orangered;
+            border: none;
+            color: white;
+            padding: 7px 12px;
+            font-size: 18px;
+            outline: none;
+            box-shadow: -6px 6px 0 hsl(16, 100%, 30%);
+            margin: 5px;
+        }
+        .button-3d:active::before {
+            border: 3px solid transparent;
+            border-right: 3px solid hsl(16, 100%, 30%);
+            border-left-width: 0px;
+            left: -3px;
+        }
+
+        .button-3d:active::after {
+            border: 3px solid transparent;
+            border-top: 3px solid hsl(16, 100%, 30%);
+            border-bottom-width: 0px;
+            bottom: -3px;
+        }
+
+        .button-3d:active {
+            background: hsl(16, 100%, 40%);
+            top: 3px;
+            left: -3px;
+            box-shadow: -3px 3px 0 hsl(16, 100%, 30%);
+        }
+        #settingsContent {
+            margin: 10px;
+        }
+        #updateLogContent {
+            margin: 10px;
+        }
+        #body {
+            padding-left:10px;
+        }
+        /* 标签样式 */
+        label {
+            display: inline;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+            font-size: 14pt;
+        }
+
+        /* 下拉选择框样式 */
+        .selectBox {
+            width: 200px; /* 宽度可以根据需要调整 */
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            appearance: none; /* 移除默认样式 */
+            -webkit-appearance: none; /* Safari 和 Chrome */
+            -moz-appearance: none; /* Firefox */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
+
+        .selectBox:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        /* 选项样式 */
+        .selectBox option {
+            padding: 10px;
+            background-color: #fff;
+            color: #333;
+        }
+        .settings_item {
+            margin: 10px;
+        }
+        li {
+            font-size: 14pt;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <h1>标签夹<span>设置选项</span></h1>
+
+    <div id="content-wrap" class="form-horizontal">
+        <div class="form-group">
+            <div id="body">
+                <p class="tips">有时候进行某项工作/学习时打开了若干个网页，但是后来中断去做别的事情了，在下一次进行这项工作/学习时又要回到历史记录里一个个点开。这样非常麻烦。</p>
+                <p class="tips">「标签夹 TabClamp」就是为了解决这样的需求而被开发的。这款插件可以帮助您一次性打开多个网页，以方便您随时恢复之前的工作环境。</p>
+                <p class="tips">欢迎反馈BUG或提供建议至 zoruasama@qq.com。</p>
+                <p class="tips">获取新版本请关注博客主页或项目仓库。</p>
+                <button id="updateLog" class="button-3d">更新日志</button>
+                <button id="settings" class="button-3d">插件设置</button>
+                <button id="reset" class="button-3d">还原一切</button>
+                <div id="updateLogContent">
+                    <h1>标签夹 TabClamp 的更新日志</h1>
+                    <h2>V2.0.0 2024年版本</h2>
+                    <ui>
+                    <li>支持导入/导出标签夹功能</li>
+                    <li>标签夹排列更加整齐</li>
+                    <li>调整了按钮的UI显示</li>
+                    <li>加入了设置页面</li>
+                    <li>新增分享标签夹功能</li>
+                    </ui>
+                     <h2>V1.0.0 2021年版本</h2>
+                     <ui>
+                    <li>初始版本, 支持基本的保存、打开、删除功能</li>
+                    </ui>
+                </div>
+
+                <div id="settingsContent" style="display:none">
+                    <div class="settings_item">
+                        <label for="settings_outer_order">标签夹外部排列顺序：</label>
+                        <select id="settings_outer_order" name="settings_outer_order" class="selectBox">
+                        <option value="default">默认顺序</option>
+                        <option value="first_letter">首字母顺序</option>
+                        <option value="time_order">最后更新时间顺序</option>
+                        </select>
+                    </div>
+                    
+                    <div class="settings_item">
+                        <label for="settings_inner_order">标签夹内部排列顺序：</label>
+                        <select id="settings_inner_order" name="settings_inner_order" class="selectBox">
+                        <option value="default">默认顺序</option>
+                        <option value="url_order">按URL排序</option>
+                        <option value="title_order">按标题排序</option>
+                        </select>
+                    </div>
+
+                    <div class="settings_item">
+                        <div id="local_storage_size" style="font-size: 14pt;"><label>已经使用的 LocalStorage 大小：</label></div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+       
+
+</div> <!-- end of content div -->
+
+<div class="footer"><a id="footer-homepage" href="http://translate.google.com/"></a></div>
+<script src="options.js"></script>
+</body>
+</html>

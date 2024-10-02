@@ -10,7 +10,12 @@
 Sometimes when doing a certain work/study, several web pages are opened, but then they are interrupted to do other things. The next time they do the work/study, they have to go back to the history and click on them one by one. This is very troublesome. TabClamp was developed to solve such needs. This plug-in can help you open multiple web pages at once, so that you can restore your previous working environment at any time. Welcome to report bugs or provide suggestions to zoruasama@qq.com. Please pay attention to the blog homepage or my GitHub repository to get new versions.
 
 # 使用方法 Usage
-pass
+1. 从 [Release](https://github.com/ZoruaSama/TabClamp/releases/tag/stable) 中下载 CRX 文件。
+![](doc/step1.png)
+
+2. 打开你的 Chromium 内核的浏览器，在地址栏输入`chrome://extensions`，开启开发者模式，然后拖入 CRX 文件。
+![](doc/step2.png)
+
 
 # 版权信息 Copyright
 Copyright 2024 Zorua.
